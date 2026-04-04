@@ -2,6 +2,14 @@ import streamlit as st
 import os
 import sys
 
+# Hack to make ChromaDB work on Streamlit Cloud (Linux) where sqlite3 version is too old
+try:
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
+
 # Add the current directory to sys.path so we can import from main.py
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
