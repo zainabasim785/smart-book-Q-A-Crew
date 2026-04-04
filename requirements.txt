@@ -11,3 +11,4 @@ python-dotenv
 streamlit
 markdown-it-py
 google-generativeai
+google-genai
